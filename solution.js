@@ -120,10 +120,10 @@
 // console.log(everyPeople);
 
 // const findComment = comments.find(opinion => opinion.id === 823423);
-// console.log(findComment);
+// console.table(findComment);
 
 // const removeComment = comments.splice(comments.findIndex(opinion => opinion.id === 823423), 1);
-// console.log(removeComment);
+// console.table(removeComment);
 
 
 //Bonus
@@ -134,3 +134,24 @@
 //                  .map(links => links.textContent)
 //                  .filter(streetName => streetName.includes('de'))
 //    console.log(de);
+
+
+// Familiarize Git Branch
+
+// git checkout -b <branch Name>
+// git push origin <branch Name>
+// git push origin <branch Name> instead of git push origin main, 
+// since we’re pushing to our new branch.
+// ensure all of your changes are committed to the new branch w/ git status
+
+// Merging
+// Checkout the branch we want to merge INTO i.e. main with the command git
+//  checkout main.
+
+// Now let’s merge our <branch Name> branch into main, our current branch, 
+// with git merge <branch Name>.
+
+// git push origin main
+
+// delete the branch git branch -d <branch Name> and also delete it from 
+// the remote repo on GitHub with git push origin --delete <branch Name>
