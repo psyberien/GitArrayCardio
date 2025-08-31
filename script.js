@@ -2,7 +2,6 @@ console.log("Hisashiburi dana");
 
 // 1st Task
 // Translate border-left-width to borderLeftWidth
-// importance: 5
 // Write the function camelize(str) that changes dash-separated words like 
 // “my-short-string” into camel-cased “myShortString”.
 // That is: removes all dashes, each word after dash becomes uppercased.
@@ -13,18 +12,16 @@ console.log("Hisashiburi dana");
 // camelize("-webkit-transition") == 'WebkitTransition';
 function camelize(str){
     return str
-            .split("-")
-            .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
-            .join("");
+        .split("-")
+        .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
+        .join("");
 }
-console.log(camelize("background-color"))
-console.log(camelize("list-style-image"))
-console.log(camelize("-webkit-transition"))
-
+console.log(camelize("background-color"));
+console.log(camelize("list-style-image"));
+console.log(camelize("-webkit-transition"));
 
 // 2nd Tak
 // Filter range
-// importance: 4
 // Write a function filterRange(arr, a, b) that gets an array arr, looks 
 // for elements with values higher or equal to a and lower or equal to b 
 // and return a result as an array.
@@ -34,20 +31,19 @@ console.log(camelize("-webkit-transition"))
 // let filtered = filterRange(arr, 1, 4);
 // alert( filtered ); // 3,1 (matching values)
 // alert( arr ); // 5,3,8,1 (not modified)
-
 let arr = [5, 3, 8, 1];
 let filtered = filterRange(arr, 1, 4);
 function filterRange(arr, a, b){
     return arr.filter(value => value >= a && value <= b);
 }
-console.log(filtered);
 console.log(arr);
+console.log(filtered);
+
 
 
 
 // 2.2nd Task
 // Filter range "in place"
-// importance: 4
 // Write a function filterRangeInPlace(arr, a, b) that gets an array arr
 // and removes from it all values except those that are between a and b. 
 // The test is: a ≤ arr[i] ≤ b.
@@ -58,22 +54,20 @@ console.log(arr);
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
 
-let arr2 = [5, 3, 8, 1];
-filterRangeInPlace(arr2, 1, 4);
-function filterRangeInPlace(arr2, a, b){
-    for(let i=0; i<arr2.length; i++){
-        if(arr2[i] < a || arr2[i] > b){
-            arr2.splice(i, 1);
+filterRangeInPlace(arr, 1, 4);
+function filterRangeInPlace(arr, a, b){
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] < a || arr[i] > b){
+            arr.splice(i, 1);
+            i--;
         }
     }
-};
-console.log(arr2);
-
+}
+console.log(arr);
 
 
 // 3rd Task
 // Map to objects
-// importance: 5
 // You have an array of user objects, each one has name, surname and id.
 // Write the code to create another array from it, of objects with id and 
 // fullName, where fullName is generated from name and surname.
@@ -97,19 +91,18 @@ let john = { name: "John", surname: "Smith", id: 1, age: 25 };
 let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
+let usersMapped = users.map(value => 
+    ({fullName: `${value.name} ${value.surname}`, 
+        id: `${value.id}`, 
+        age: `${value.age}`}));
+console.log(usersMapped);
+console.log(usersMapped[0].fullName);
 
-let usersMapped = users.map(user => ({fullName: `${user.name} ${user.surname}`, id: `${user.id}`}))
-usersMapped = [
-    { fullName: "John Smith", id: 1 },
-    { fullName: "Pete Hunt", id: 2 },
-    { fullName: "Mary Key", id: 3 }
-]
 
-console.log(usersMapped)
 // 4th Task
 // Sort users by age
-// importance: 5
-// Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+// Write the function sortByAge(users) that gets an array of objects with 
+// the age property and sorts them by age.
 
 // For instance:
 // sortByAge(arr);
@@ -117,37 +110,41 @@ console.log(usersMapped)
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-function sortByAge(users){
-    return users.sort((a, b) => a.age - b.age);
+sortByAge(users);
+function sortByAge(arr){
+    return arr.sort((a, b) => a.age - b.age);
 }
-console.log(sortByAge(users))
+console.log(users);
 
 // 5th Task
 // Get average age
-// importance: 4
 // Write the function getAverageAge(users) that gets an array of objects 
 // with property age and returns the average age.
 // The formula for the average is (age1 + age2 + ... + ageN) / N.
 // For instance:
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
-function getAverageAge(users){
-    return users.reduce((num, current) => num + current.age, 0)/users.length;
-}
 console.log(getAverageAge(users));
+function getAverageAge(arr){
+    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
+}
+
 
 
 
 // 6th Task
 // Filter unique array members
-// importance: 4
 // Let arr be an array.
 // Create a function unique(arr) that should return an array with unique 
 // items of arr.
 
 // For instance:
 // alert( unique(strings) ); // Hare, Krishna, :-O
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+"Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+console.log(unique(strings));
 
-function unique(arr) {
+function unique(arr){
     const newArr = [];
     for(let str of arr){
         if(!newArr.includes(str))
@@ -155,21 +152,15 @@ function unique(arr) {
     }
     return newArr;
 }
-let strings = ["Hare", "Krishna", "Hare", "Krishna",
-"Krishna", "Krishna", "Hare", "Hare", ":-O"
-];
-console.log(unique(strings));
 
 
 
 // 7th Task
 // Create keyed object from array
-// importance: 4
 // Let’s say we received an array of users in the form 
 // {id:..., name:..., age:... }.
-// Create a function groupById(arr) that creates an object from it, with id 
-// as the key, and array items as values.
-
+// Create a function groupById(arr) that creates an object from it, with 
+// name as the key, and array items as values.
 
 // For example:
 // let users = [
@@ -189,14 +180,12 @@ console.log(unique(strings));
 // */
 let usersById = groupById(users);
 function groupById(arr){
-    return arr.reduce((obj, current) =>{
+    return arr.reduce((obj, current) => {
         obj[current.name] = current;
         return obj;
     }, {});
 }
 console.log(usersById);
-
-
 
 // 8th Task
  const inventor = [
@@ -207,23 +196,23 @@ console.log(usersById);
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
+let inventorByName = inventor.sort((a, b) => a.localeCompare(b));
 console.log(inventorByName);
+
 
 
 // 9th Task
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-        
-const transportation = data.reduce(function(obj, item){
-  if(!obj[item]){
-    obj[item] = 0;
-  }
-   obj[item]++;
-   return obj;
-}, {}); 
-
+const transportation = data.reduce((obj, item) => {
+    if(!obj[item]){
+        obj[item] = 0;
+    }
+        obj[item]++;
+        return obj;
+}, {});
 console.log(transportation);
+
 
 
 // 10th Task
@@ -244,32 +233,26 @@ console.log(transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-//    const somePeople = people.some(person => (2025 - person.year >= 19));
-//    console.log(somePeople);
 const somePeople = people.some(person => (2025 - person.year >= 19));
 console.log(somePeople);
 
 // Array.prototype.every() // is everyone 19 or older?
-// const everyPeople = people.every(person => (2025 - person.year >= 19 ));
-// console.log(everyPeople);
 const everyPeople = people.every(person => (2025 - person.year >= 19));
 console.log(everyPeople);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-//    const findComment = comments.find(opinion => opinion.id === 823423);
-//    console.table(findComment);
 const findComment = comments.find(opinion => opinion.id === 823423);
-console.log(findComment);
+console.table(findComment);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
 // const removeComment = comments.splice(comments.findIndex(opinion => (opinion.id === 823423)), 1);
 // console.table(comments);
-const removeComment = comments.splice(comments.findIndex(opinion => opinion.id === 823423), 1);
-console.log(removeComment);
+const removeComment = comments.splice(comments.findIndex(opinion => (opinion.id === 823423)), 1);
+console.table(comments);
 
 
 //Bonus Task
