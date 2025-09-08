@@ -20,6 +20,7 @@ console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
 
+
 // 2nd Tak
 // Filter range
 // Write a function filterRange(arr, a, b) that gets an array arr, looks 
@@ -34,10 +35,11 @@ console.log(camelize("-webkit-transition"));
 let arr = [5, 3, 8, 1];
 let filtered = filterRange(arr, 1, 4);
 function filterRange(arr, a, b){
-    return arr.filter(value => value >= a && value <= b);
+    return arr.filter(num => num >= a && num <= b);
 }
 console.log(arr);
 console.log(filtered);
+
 
 
 
@@ -53,7 +55,6 @@ console.log(filtered);
 // let arr = [5, 3, 8, 1];
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
-
 filterRangeInPlace(arr, 1, 4);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
@@ -64,6 +65,7 @@ function filterRangeInPlace(arr, a, b){
     }
 }
 console.log(arr);
+
 
 
 // 3rd Task
@@ -91,12 +93,8 @@ let john = { name: "John", surname: "Smith", id: 1, age: 25 };
 let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
-let usersMapped = users.map(value => 
-    ({fullName: `${value.name} ${value.surname}`, 
-        id: `${value.id}`, 
-        age: `${value.age}`}));
+let usersMapped = users.map(value => ({fulName: `${value.name} ${value.surname}`, id: `${value.id}`}))
 console.log(usersMapped);
-console.log(usersMapped[0].fullName);
 
 
 // 4th Task
@@ -129,8 +127,6 @@ function getAverageAge(arr){
 }
 
 
-
-
 // 6th Task
 // Filter unique array members
 // Let arr be an array.
@@ -143,12 +139,12 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 console.log(unique(strings));
-
-function unique(arr){
+function unique(strings){
     const newArr = [];
-    for(let str of arr){
-        if(!newArr.includes(str))
+    for(let str of strings){
+        if(!newArr.includes(str)){
             newArr.push(str);
+        }
     }
     return newArr;
 }
@@ -183,7 +179,7 @@ function groupById(arr){
     return arr.reduce((obj, current) => {
         obj[current.name] = current;
         return obj;
-    }, {});
+    }, {})
 }
 console.log(usersById);
 
@@ -196,24 +192,21 @@ console.log(usersById);
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-let inventorByName = inventor.sort((a, b) => a.localeCompare(b));
-console.log(inventorByName);
-
+const peopleByName = inventor.sort((a, b) => a.localeCompare(b));
+console.log(peopleByName);
 
 
 // 9th Task
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-const transportation = data.reduce((obj, item) => {
+const transportation = data.reduce(function(obj, item){
     if(!obj[item]){
         obj[item] = 0;
     }
-        obj[item]++;
-        return obj;
+    obj[item]++;
+    return obj;
 }, {});
 console.log(transportation);
-
-
 
 // 10th Task
    const people = [
@@ -233,26 +226,26 @@ console.log(transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const somePeople = people.some(person => (2025 - person.year >= 19));
+const somePeople = people.some(value => 2025 - value.year >= 19);
 console.log(somePeople);
 
 // Array.prototype.every() // is everyone 19 or older?
-const everyPeople = people.every(person => (2025 - person.year >= 19));
-console.log(everyPeople);
+const everyPerson = people.every(value => 2025 - value.year >= 19);
+console.log(everyPerson);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-const findComment = comments.find(opinion => opinion.id === 823423);
-console.table(findComment);
+const findCommnet = comments.find(value => value.id === 823423);
+console.table(findCommnet);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-// const removeComment = comments.splice(comments.findIndex(opinion => (opinion.id === 823423)), 1);
-// console.table(comments);
-const removeComment = comments.splice(comments.findIndex(opinion => (opinion.id === 823423)), 1);
-console.table(comments);
+ const removeComment = comments.splice(comments.findIndex(opinion => 
+ (opinion.id === 823423)), 1);
+ console.table(comments);
+
 
 
 //Bonus Task
