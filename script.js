@@ -10,9 +10,6 @@ console.log("Hisashiburi dana");
 // camelize("background-color") == 'backgroundColor';
 // camelize("list-style-image") == 'listStyleImage';
 // camelize("-webkit-transition") == 'WebkitTransition';
-console.log(camelize("background-color"));
-console.log(camelize("list-style-image"));
-console.log(camelize("-webkit-transition"));
 function camelize(str){
     return str
         .split("-")
@@ -21,6 +18,10 @@ function camelize(str){
         )
         .join("");
 }
+console.log(camelize("background-color"));
+console.log(camelize("list-style-image"));
+console.log(camelize("-webkit-transition"));
+
 
 
 
@@ -42,6 +43,7 @@ console.log(arr);
 function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
+
 // 2.2nd Task
 // Filter range "in place"
 // Write a function filterRangeInPlace(arr, a, b) that gets an array arr
@@ -60,9 +62,10 @@ function filterRangeInPlace(arr, a, b){
         if(arr[i] < a || arr[i] > b){
             arr.splice(i, 1);
             i--;
-        }
+        }   
     }
 }
+
 
 // 3rd Task
 // Map to objects
@@ -89,8 +92,7 @@ let john = { name: "John", surname: "Smith", id: 1, age: 25 };
 let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
-let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`,
-    id: `${obj.id}`, age: `${obj.age}`}));
+let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, id: `${obj.id}`}));
 console.log(usersMapped);
 
 // 4th Task
@@ -104,11 +106,10 @@ console.log(usersMapped);
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-
+console.log(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
 }
-console.log(sortByAge(users));
 
 // 5th Task
 // Get average age
@@ -134,7 +135,7 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ]
 console.log(unique(strings));
-function unique(strings){
+function unique(arr){
     const newArr = [];
     for(let str of strings){
         if(!newArr.includes(str)){
@@ -168,13 +169,13 @@ function unique(strings){
 // }
 // */
 let usersById = groupById(users);
-console.log(usersById);
 function groupById(arr){
     return arr.reduce((obj, current) => {
         obj[current.name] = current;
         return obj;
     }, {})
-};
+}
+console.log(usersById);
 
 // 8th Task
  const inventor = [
@@ -194,7 +195,7 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 const transportation = data.reduce((obj, current) => {
     if(!obj[current]){
         obj[current] = 0;
-    }
+    } 
     obj[current]++;
     return obj;
 }, {});
@@ -225,17 +226,17 @@ console.log(somePeople);
 // Array.prototype.every() // is everyone 19 or older?
 const everyPerson = people.every(value => 2025 - value.year >= 19);
 console.log(everyPerson);
-
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-const findCommnet = comments.find(value => value.id === 2039842);
-console.table(findCommnet);
+const findComment = comments.find(item => item.id === 823423)
+console.table(findComment);
+
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-const deleteComment = comments.splice(comments.findIndex(value => value.id === 523423), 1);
+const removeComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
 console.table(comments);
 
 
