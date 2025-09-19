@@ -13,14 +13,12 @@ console.log("Hisashiburi dana");
 console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
-function camelize(str){
+function camelize(str) {
     return str
-        .split("-")
+        .split('-')
         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
-        .join("");
+        .join('');
 }
-
-
 // 2nd Tak
 // Filter range
 // Write a function filterRange(arr, a, b) that gets an array arr, looks 
@@ -52,7 +50,7 @@ function filterRange(arr, a, b){
 // alert( arr ); // [3, 1]
 filterRangeInPlace(arr, 1, 4);
 console.log(arr);
-function filterRangeInPlace(arr, a, b){
+function filterRangeInPlace(arr, a , b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
             arr.splice(i, 1);
@@ -90,6 +88,7 @@ let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.log(usersMapped);
 
+
 // 4th Task
 // Sort users by age
 // Write the function sortByAge(users) that gets an array of objects with 
@@ -114,7 +113,7 @@ function sortByAge(arr){
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 console.log(getAverageAge(users));
 function getAverageAge(arr){
-    return arr.reduce((num , current) => num + current.age, 0)/arr.length;
+    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
 }
 
 // 6th Task
@@ -129,7 +128,7 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ]
 console.log(unique(strings));
-function unique(arr){
+function unique(strings){
     const newArr = [];
     for(let str of strings){
         if(!newArr.includes(str))
@@ -137,7 +136,6 @@ function unique(arr){
     }
     return newArr;
 }
-
 
 // 7th Task
 // Create keyed object from array
@@ -192,8 +190,8 @@ const transportation = data.reduce((obj, current) => {
     }
     obj[current]++;
     return obj;
-}, {})
-console.log( transportation);
+}, {});
+console.log(transportation);
 
 // 10th Task
    const people = [
@@ -213,17 +211,16 @@ console.log( transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const somePeople  = people.some(item => 2025 - item.year >= 19);
+const somePeople = people.some(value => 2025 - value.year >= 19);
 console.log(somePeople);
 
 // Array.prototype.every() // is everyone 19 or older?
-const everyPerson  = people.every(item => 2025 - item.year >= 19);
-console.log(everyPerson);
-
+const everPerson = people.every(value => 2025 - value.year >= 19);
+console.log(everPerson);
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-const findComment = comments.find(value => value.id === 823423);
+const findComment = comments.find(item => item.id === 823423);
 console.table(findComment);
 
 // Array.prototype.findIndex()
@@ -232,8 +229,6 @@ console.table(findComment);
 const deleteComment = comments.splice(comments.findIndex(value => value.id === 823423), 1);
 console.table(deleteComment);
 console.table(comments);
-
-
 
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
