@@ -15,9 +15,11 @@ console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
 function camelize(str){
     return str
-        .split('-')
-        .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice())
-        .join('');
+        .split("-")
+        .map((word, index) => 
+            index === 0 ? word : word[0].toUpperCase() + word.slice(1)
+        )
+        .join("");
 }
 // 2nd Tak
 // Filter range
@@ -32,11 +34,11 @@ function camelize(str){
 // alert( arr ); // 5,3,8,1 (not modified)
 let arr = [5, 3, 8, 1];
 let filtered = filterRange(arr, 1, 4);
-function filterRange(arr, a, b){
-    return arr.filter(num => num >= a && num <= b);
-}
 console.log(filtered);
 console.log(arr);
+function filterRange(arr, a ,b ){
+    return arr.filter(num => num >= a && num <= b);
+}
 
 // 2.2nd Task
 // Filter range "in place"
@@ -86,7 +88,7 @@ let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
-console.log(usersMapped);
+console.table(usersMapped);
 
 // 4th Task
 // Sort users by age
@@ -99,7 +101,7 @@ console.log(usersMapped);
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-console.log(sortByAge(users));
+console.table(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
 }
@@ -131,13 +133,11 @@ console.log(unique(strings));
 function unique(arr){
     const newArr = [];
     for(let str of arr){
-        if(!newArr.includes(str)){
+        if(!newArr.includes(str))
             newArr.push(str);
-        }
     }
     return newArr;
 }
-
 // 7th Task
 // Create keyed object from array
 // Let’s say we received an array of users in the form 
@@ -180,7 +180,7 @@ function groupById(arr){
     ];
 // Sort the people alphabetically by last name
 const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
-console.table(inventorByName);
+console.log(inventorByName);
 
 // 9th Task
 // Sum up the instances of each of these
@@ -211,12 +211,13 @@ console.log(transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const somePeople = people.some(value => 2025 - value.year >= 19);
+const somePeople = people.some(obj => 2025 - obj.year >= 19);
 console.log(somePeople);
 
 // Array.prototype.every() // is everyone 19 or older?
-const everyPerson = people.every(value => 2025 - value.year >= 19);
+const everyPerson = people.every(obj => 2025 - obj.year >= 19);
 console.log(everyPerson);
+
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
@@ -226,10 +227,9 @@ console.table(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
+const deleteComment = comments.splice(comments.findIndex(item => item.id === 2039842), 1);
 console.table(deleteComment);
 console.table(comments);
-
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
 // name
