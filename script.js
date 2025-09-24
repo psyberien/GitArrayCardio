@@ -33,11 +33,11 @@ function camelize(str){
 // alert( arr ); // 5,3,8,1 (not modified)
 let arr = [5, 3, 8, 1];
 let filtered = filterRange(arr, 1, 4);
-console.log(filtered);
-console.log(arr);
-function filterRange(arr, a, b) {
+function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
+console.log(filtered);
+console.log(arr);
 
 // 2.2nd Task
 // Filter range "in place"
@@ -52,7 +52,7 @@ function filterRange(arr, a, b) {
 // alert( arr ); // [3, 1]
 filterRangeInPlace(arr, 1, 4);
 console.log(arr);
-function filterRangeInPlace(arr, a, b) {
+function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
             arr.splice(i, 1);
@@ -88,7 +88,7 @@ let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
-console.table(usersMapped);
+console.log(usersMapped);
 
 // 4th Task
 // Sort users by age
@@ -101,7 +101,7 @@ console.table(usersMapped);
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-console.table(sortByAge(users))
+console.log(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
 }
@@ -139,6 +139,7 @@ function unique(arr){
     return newArr;
 }
 
+
 // 7th Task
 // Create keyed object from array
 // Let’s say we received an array of users in the form 
@@ -167,9 +168,10 @@ console.log(usersById);
 function groupById(arr){
     return arr.reduce((obj, current) => {
         obj[current.name] = current;
-        return obj; 
+        return obj;
     }, {});
-}
+} 
+
 
 // 8th Task
  const inventor = [
@@ -180,17 +182,17 @@ function groupById(arr){
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-const sortedInventors = inventor.sort((a, b) => a.localeCompare(b));
-console.log(sortedInventors);
+const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
+console.log(inventorByName);
 
 // 9th Task
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-const transportation = data.reduce((obj, item) => {
-    if(!obj[item]){
-        obj[item] = 0;
+const transportation = data.reduce((obj, current) => {
+    if(!obj[current]){
+        obj[current] = 0;
     }
-    obj[item]++;
+    obj[current]++;
     return obj;
 }, {});
 console.log(transportation);
@@ -212,23 +214,23 @@ console.log(transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const somePeople = people.some(value => 2025 - value.year >= 19);
+const somePeople = people.some(item => 2025 - item.year >= 19);
 console.log(somePeople);
 
 // Array.prototype.every() // is everyone 19 or older?
-const everyPerson = people.every(value => 2025 - value.year >= 19);
+const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-const findComment = comments.find(item => item.id === 823423);
+const findComment= comments.find(item => item.id === 823423);
 console.table(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-const removeComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
-console.table(removeComment);
+const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
+console.table(deleteComment);
 console.table(comments);
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
@@ -236,7 +238,7 @@ console.table(comments);
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 //    const catergory = document.querySelector('.mw-category');
 //    const links = Array.from(catergory.querySelectorAll('a'));
-//    const de = links
+//    const dec = links
 //                  .map(links => links.textContent)
 //                  .filter(streetName => streetName.includes('de'))
 //    console.log(de);
