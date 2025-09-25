@@ -16,8 +16,7 @@ console.log(camelize("-webkit-transition"));
 function camelize(str){
     return str
         .split("-")
-        .map((word, index) => 
-            index === 0 ? word : word[0].toUpperCase() + word.slice(1))
+        .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
         .join("");
 }
 // 2nd Tak
@@ -51,7 +50,6 @@ console.log(arr);
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
 filterRangeInPlace(arr, 1, 4);
-console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
@@ -60,6 +58,7 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
+console.log(arr);
 
 
 // 3rd Task
@@ -89,7 +88,6 @@ let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.log(usersMapped);
-
 // 4th Task
 // Sort users by age
 // Write the function sortByAge(users) that gets an array of objects with 
@@ -130,15 +128,14 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 console.log(unique(strings));
-function unique(arr){
+function unique(strings){
     const newArr = [];
-    for(let str of arr){
+    for(let str of strings){
         if(!newArr.includes(str))
             newArr.push(str);
     }
     return newArr;
 }
-
 
 // 7th Task
 // Create keyed object from array
@@ -170,7 +167,7 @@ function groupById(arr){
         obj[current.name] = current;
         return obj;
     }, {});
-} 
+}
 
 
 // 8th Task
@@ -188,11 +185,11 @@ console.log(inventorByName);
 // 9th Task
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-const transportation = data.reduce((obj, current) => {
-    if(!obj[current]){
-        obj[current] = 0;
+const transportation = data.reduce((obj, item) => {
+    if(!obj[item]){
+        obj[item] = 0;
     }
-    obj[current]++;
+    obj[item]++;
     return obj;
 }, {});
 console.log(transportation);
@@ -216,7 +213,6 @@ console.log(transportation);
 // Array.prototype.some() // is at least one person 19 or older?
 const somePeople = people.some(item => 2025 - item.year >= 19);
 console.log(somePeople);
-
 // Array.prototype.every() // is everyone 19 or older?
 const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
@@ -224,7 +220,7 @@ console.log(everyPerson);
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-const findComment= comments.find(item => item.id === 823423);
+const findComment = comments.find(item => item.id === 823423);
 console.table(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
@@ -238,7 +234,7 @@ console.table(comments);
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 //    const catergory = document.querySelector('.mw-category');
 //    const links = Array.from(catergory.querySelectorAll('a'));
-//    const dec = links
+//    const de = links
 //                  .map(links => links.textContent)
 //                  .filter(streetName => streetName.includes('de'))
 //    console.log(de);
