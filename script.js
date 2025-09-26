@@ -32,11 +32,11 @@ function camelize(str){
 // alert( arr ); // 5,3,8,1 (not modified)
 let arr = [5, 3, 8, 1];
 let filtered = filterRange(arr, 1, 4);
-function filterRange(arr, a, b){
-    return arr.filter(num => num >= a && num <= b);
-}
 console.log(filtered);
 console.log(arr);
+function filterRange(arr, a , b){
+    return arr.filter(num => num >= a && num <= b);
+}
 
 // 2.2nd Task
 // Filter range "in place"
@@ -50,6 +50,7 @@ console.log(arr);
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
 filterRangeInPlace(arr, 1, 4);
+console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
@@ -58,7 +59,6 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
-console.log(arr);
 
 
 // 3rd Task
@@ -88,21 +88,22 @@ let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.log(usersMapped);
+
 // 4th Task
 // Sort users by age
 // Write the function sortByAge(users) that gets an array of objects with 
 // the age property and sorts them by age.
-
+console.log(sortByAge(users));
+function sortByAge(arr){
+    return arr.sort((a, b) => a.age - b.age);
+}
 // For instance:
 // sortByAge(arr);
 // // now: [john, mary, pete]
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-console.log(sortByAge(users));
-function sortByAge(arr){
-    return arr.sort((a, b) => a.age - b.age);
-}
+
 
 // 5th Task
 // Get average age
@@ -129,7 +130,7 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 ];
 console.log(unique(strings));
 function unique(strings){
-    const newArr = [];
+    const newArr =[];
     for(let str of strings){
         if(!newArr.includes(str))
             newArr.push(str);
@@ -213,6 +214,7 @@ console.log(transportation);
 // Array.prototype.some() // is at least one person 19 or older?
 const somePeople = people.some(item => 2025 - item.year >= 19);
 console.log(somePeople);
+
 // Array.prototype.every() // is everyone 19 or older?
 const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
@@ -222,12 +224,14 @@ console.log(everyPerson);
 // find the comment with the ID of 823423
 const findComment = comments.find(item => item.id === 823423);
 console.table(findComment);
+
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
 const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
 console.table(deleteComment);
 console.table(comments);
+
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
 // name
