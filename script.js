@@ -34,7 +34,7 @@ let arr = [5, 3, 8, 1];
 let filtered = filterRange(arr, 1, 4);
 console.log(filtered);
 console.log(arr);
-function filterRange(arr, a , b){
+function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
 
@@ -59,7 +59,6 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
-
 
 // 3rd Task
 // Map to objects
@@ -88,22 +87,21 @@ let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.log(usersMapped);
-
 // 4th Task
 // Sort users by age
 // Write the function sortByAge(users) that gets an array of objects with 
 // the age property and sorts them by age.
-console.log(sortByAge(users));
-function sortByAge(arr){
-    return arr.sort((a, b) => a.age - b.age);
-}
+
 // For instance:
 // sortByAge(arr);
 // // now: [john, mary, pete]
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-
+console.log(sortByAge(users));
+function sortByAge(arr){
+    return arr.sort((a, b) => a.age - b.age);
+}
 
 // 5th Task
 // Get average age
@@ -116,7 +114,6 @@ console.log(getAverageAge(users));
 function getAverageAge(arr){
     return arr.reduce((num, current) => num + current.age, 0)/arr.length;
 }
-
 // 6th Task
 // Filter unique array members
 // Let arr be an array.
@@ -129,9 +126,9 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 console.log(unique(strings));
-function unique(strings){
-    const newArr =[];
-    for(let str of strings){
+function unique(arr){
+    const newArr = [];
+    for(let str of arr){
         if(!newArr.includes(str))
             newArr.push(str);
     }
@@ -170,7 +167,6 @@ function groupById(arr){
     }, {});
 }
 
-
 // 8th Task
  const inventor = [
       'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
@@ -194,6 +190,7 @@ const transportation = data.reduce((obj, item) => {
     return obj;
 }, {});
 console.log(transportation);
+
 // 10th Task
    const people = [
       { name: 'Wes', year: 1988 },
