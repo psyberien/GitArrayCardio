@@ -38,6 +38,7 @@ function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
 
+
 // 2.2nd Task
 // Filter range "in place"
 // Write a function filterRangeInPlace(arr, a, b) that gets an array arr
@@ -59,7 +60,6 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
-
 // 3rd Task
 // Map to objects
 // You have an array of user objects, each one has name, surname and id.
@@ -87,6 +87,7 @@ let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.log(usersMapped);
+
 // 4th Task
 // Sort users by age
 // Write the function sortByAge(users) that gets an array of objects with 
@@ -102,7 +103,6 @@ console.log(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
 }
-
 // 5th Task
 // Get average age
 // Write the function getAverageAge(users) that gets an array of objects 
@@ -112,7 +112,7 @@ function sortByAge(arr){
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 console.log(getAverageAge(users));
 function getAverageAge(arr){
-    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
+    return arr.reduce((num , current) => num + current.age, 0)/arr.length;
 }
 // 6th Task
 // Filter unique array members
@@ -134,6 +134,7 @@ function unique(arr){
     }
     return newArr;
 }
+
 
 // 7th Task
 // Create keyed object from array
@@ -158,15 +159,14 @@ function unique(arr){
 //   pete: {id: 'pete', name: "Pete Peterson", age: 31},
 // }
 // */
-let usersById = groupById(users);
-console.log(usersById);
-function groupById(arr){
+ let usersById = groupById(users);
+ console.log(usersById);
+ function groupById(arr){
     return arr.reduce((obj, current) => {
         obj[current.name] = current;
         return obj;
     }, {});
-}
-
+ }
 // 8th Task
  const inventor = [
       'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
