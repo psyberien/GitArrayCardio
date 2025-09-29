@@ -227,7 +227,7 @@ console.table(findComment);
 // delete the comment with the ID of 823423
 const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
 console.table(deleteComment);
-console.table(comments);
+console.table(comments);   
 
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
