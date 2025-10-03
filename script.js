@@ -17,7 +17,7 @@ function camelize(str){
     return str
         .split("-")
         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
-        .join("");  
+        .join("");
 }
 // 2nd Tak
 // Filter range
@@ -37,7 +37,6 @@ console.log(arr);
 function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
-
 
 // 2.2nd Task
 // Filter range "in place"
@@ -60,7 +59,6 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
-
 // 3rd Task
 // Map to objects
 // You have an array of user objects, each one has name, surname and id.
@@ -88,7 +86,6 @@ let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
 let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.log(usersMapped);
-
 // 4th Task
 // Sort users by age
 // Write the function sortByAge(users) that gets an array of objects with 
@@ -100,6 +97,7 @@ console.log(usersMapped);
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
+
 console.log(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
@@ -127,6 +125,7 @@ function getAverageAge(arr){
 let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
+console.log(unique(strings));
 function unique(strings){
     const newArr = [];
     for(let str of strings){
@@ -135,7 +134,6 @@ function unique(strings){
     }
     return newArr;
 }
-console.log(unique(strings));
 
 // 7th Task
 // Create keyed object from array
@@ -168,6 +166,7 @@ function groupById(arr){
         return obj;
     }, {});
 }
+
 // 8th Task
  const inventor = [
       'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
@@ -224,8 +223,9 @@ console.table(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-const deleteCommment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
-console.table(deleteCommment);
+
+const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
+console.table(deleteComment);
 console.table(comments);
 
 
