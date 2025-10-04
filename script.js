@@ -38,6 +38,7 @@ function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
 
+
 // 2.2nd Task
 // Filter range "in place"
 // Write a function filterRangeInPlace(arr, a, b) that gets an array arr
@@ -54,7 +55,7 @@ console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
-            arr.splice(i, 1);
+            arr.splice(i ,1);
             i--;
         }
     }
@@ -97,7 +98,6 @@ console.log(usersMapped);
 // alert(arr[0].name); // John
 // alert(arr[1].name); // Mary
 // alert(arr[2].name); // Pete
-
 console.log(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
@@ -112,7 +112,7 @@ function sortByAge(arr){
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 console.log(getAverageAge(users));
 function getAverageAge(arr){
-    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
+    return arr.reduce((num , current) => num + current.age ,0)/arr.length;
 }
 // 6th Task
 // Filter unique array members
@@ -134,7 +134,6 @@ function unique(strings){
     }
     return newArr;
 }
-
 // 7th Task
 // Create keyed object from array
 // Let’s say we received an array of users in the form 
@@ -182,14 +181,14 @@ console.log(inventorByName);
 // 9th Task
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-const transportation = data.reduce((obj, item) => {
+const transpo = data.reduce((obj, item) => {
     if(!obj[item]){
         obj[item] = 0;
     }
     obj[item]++;
     return obj;
 }, {});
-console.log(transportation);
+console.log(transpo);
 // 10th Task
    const people = [
       { name: 'Wes', year: 1988 },
@@ -213,7 +212,6 @@ console.log(somePeople);
 // Array.prototype.every() // is everyone 19 or older?
 const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
-
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
@@ -223,11 +221,9 @@ console.table(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-
-const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
+const deleteComment = comments.splice(comments.findIndex(item => item.id === 523423), 1);
 console.table(deleteComment);
 console.table(comments);
-
 
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
