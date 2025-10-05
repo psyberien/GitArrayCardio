@@ -13,7 +13,7 @@ console.log("Hisashiburi dana");
 console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
-function camelize(str){
+function camelize(str) {
     return str
         .split("-")
         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
@@ -37,7 +37,6 @@ console.log(arr);
 function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
-
 
 // 2.2nd Task
 // Filter range "in place"
@@ -110,6 +109,7 @@ function sortByAge(arr){
 // The formula for the average is (age1 + age2 + ... + ageN) / N.
 // For instance:
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
 console.log(getAverageAge(users));
 function getAverageAge(arr){
     return arr.reduce((num , current) => num + current.age, 0)/arr.length;
@@ -126,9 +126,9 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 console.log(unique(strings));
-function unique(arr){
+function unique(strings){
     const newArr = [];
-    for(let str of arr){
+    for(let str of strings){
         if(!newArr.includes(str))
             newArr.push(str);
     }
@@ -159,14 +159,14 @@ function unique(arr){
 //   pete: {id: 'pete', name: "Pete Peterson", age: 31},
 // }
 // */
- let usersById = groupById(users);
- console.log(usersById);
- function groupById(arr){
+let usersById = groupById(users);
+console.log(usersById);
+function groupById(arr){
     return arr.reduce((obj, current) => {
         obj[current.name] = current;
         return obj;
     }, {});
- }
+}
 // 8th Task
  const inventor = [
       'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
@@ -225,9 +225,10 @@ console.table(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
-console.table(deleteComment);
+const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423),  1);
+console.table(findComment);
 console.table(comments);
+
 
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
