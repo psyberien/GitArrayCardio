@@ -50,7 +50,7 @@ function filterRange(arr, a, b){
 // let arr = [5, 3, 8, 1];
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
-filterRangeInPlace(arr, 1, 4); 
+filterRangeInPlace(arr, 1, 4);
 console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
@@ -100,7 +100,7 @@ console.table(usersMapped);
 // alert(arr[2].name); // Pete
 console.table(sortByAge(users));
 function sortByAge(arr){
-    return arr.sort((a, b) => a.age- b.age);
+    return arr.sort((a, b) => a.age - b.age);
 }
 // 5th Task
 // Get average age
@@ -113,7 +113,6 @@ console.log(getAverageAge(users));
 function getAverageAge(arr){
     return arr.reduce((num, current) => num + current.age, 0)/arr.length;
 }
-
 // 6th Task
 // Filter unique array members
 // Let arr be an array.
@@ -129,9 +128,8 @@ console.log(unique(strings));
 function unique(strings){
     const newArr = [];
     for(let str of strings){
-        if(!newArr.includes(str)){
+        if(!newArr.includes(str))
             newArr.push(str);
-        }
     }
     return newArr;
 }
@@ -168,7 +166,6 @@ function groupById(arr){
         return obj;
     }, {});
 }
-
 // 8th Task
  const inventor = [
       'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
@@ -178,7 +175,7 @@ function groupById(arr){
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
+const inventorByName = inventor.sort((a, b) => a.age - b.age);
 console.log(inventorByName);
 
 // 9th Task
@@ -210,24 +207,23 @@ console.log(transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const somePeople = people.some(item => 2025 -item.year >= 19);
+const somePeople = people.some(item => 2025 - item.year >= 19);
 console.log(somePeople);
 // Array.prototype.every() // is everyone 19 or older?
-const everyPerson = people.every(item => 2025 -item.year >= 19);
+const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
 const findComment = comments.find(item => item.id === 823423);
-console.table(findComment);
+console.log(findComment);
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
 const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
 console.table(deleteComment);
 console.table(comments);
-
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
 // name
