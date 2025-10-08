@@ -13,7 +13,7 @@ console.log("Hisashiburi dana");
 console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
-function camelize(str){
+function camelize(str) {
     return str
         .split("-")
         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
@@ -35,10 +35,8 @@ let filtered = filterRange(arr, 1, 4);
 console.log(filtered);
 console.log(arr);
 function filterRange(arr, a, b){
-    return arr.filter(num => num >= a && num <= b);
+    return arr.filter(num => num >=  a && num <= b);
 }
-
-
 // 2.2nd Task
 // Filter range "in place"
 // Write a function filterRangeInPlace(arr, a, b) that gets an array arr
@@ -50,7 +48,7 @@ function filterRange(arr, a, b){
 // let arr = [5, 3, 8, 1];
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
-filterRangeInPlace(arr, 1, 4);
+filterRangeInPlace(arr, 1, 4); 
 console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
@@ -102,6 +100,7 @@ console.table(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
 }
+
 // 5th Task
 // Get average age
 // Write the function getAverageAge(users) that gets an array of objects 
@@ -111,7 +110,7 @@ function sortByAge(arr){
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 console.log(getAverageAge(users));
 function getAverageAge(arr){
-    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
+    return arr.reduce((num, current) => num + current.age ,0)/arr.length;
 }
 // 6th Task
 // Filter unique array members
@@ -119,8 +118,7 @@ function getAverageAge(arr){
 // Create a function unique(arr) that should return an array with unique 
 // items of arr.
 
-// For instance:
-// alert( unique(strings) ); // Hare, Krishna, :-O
+// For instance:+2
 let strings = ["Hare", "Krishna", "Hare", "Krishna",
 "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
@@ -133,8 +131,6 @@ function unique(strings){
     }
     return newArr;
 }
-
-
 // 7th Task
 // Create keyed object from array
 // Let’s say we received an array of users in the form 
@@ -175,7 +171,7 @@ function groupById(arr){
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-const inventorByName = inventor.sort((a, b) => a.age - b.age);
+const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
 console.log(inventorByName);
 
 // 9th Task
@@ -210,6 +206,7 @@ console.log(transportation);
 const somePeople = people.some(item => 2025 - item.year >= 19);
 console.log(somePeople);
 // Array.prototype.every() // is everyone 19 or older?
+
 const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
 
@@ -233,4 +230,4 @@ console.table(comments);
 //    const de = links
 //                  .map(links => links.textContent)
 //                  .filter(streetName => streetName.includes('de'))
-//    console.log(de);
+//    console.log(de);+
