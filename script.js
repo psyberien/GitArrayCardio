@@ -50,7 +50,7 @@ function filterRange(arr, a, b){
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
 filterRangeInPlace(arr, 1, 4);
-function filterRangeInPlace(arr, a , b) {
+function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
             arr.splice(i, 1);
@@ -59,6 +59,7 @@ function filterRangeInPlace(arr, a , b) {
     }
 }
 console.log(arr);
+
 
 // 3rd Task
 // Map to objects
@@ -113,7 +114,7 @@ function sortByAge(arr){
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 console.log(getAverageAge(users));
 function getAverageAge(arr){
-    return arr.reduce((num, current) => num + current.age ,0)/arr.length;
+    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
 }
 // 6th Task
 // Filter unique array members
@@ -134,6 +135,7 @@ function unique(strings){
     }
     return newArr;
 }
+
 // 7th Task
 // Create keyed object from array
 // Let’s say we received an array of users in the form 
@@ -174,9 +176,8 @@ function groupById(arr){
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
-console.log(inventorByName);
-
+const inventorById = inventor.sort((a, b) => a.localeCompare(b));
+console.log(inventorById);
 // 9th Task
 // Sum up the instances of each of these
 
@@ -198,11 +199,9 @@ console.log(inventorByName);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-
 const somePeople = people.some(item => 2025 - item.year >= 19);
 console.log(somePeople);
 // Array.prototype.every() // is everyone 19 or older?
-
 const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
 
@@ -210,16 +209,14 @@ console.log(everyPerson);
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-
-const findComment = comments.find(item => item.id === 823423);
-console.table(findComment);
+const findCommnet = comments.find(item => item.id === 823423);
+console.log(findCommnet);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-
-const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
-console.table(deleteComment);
+const delteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
+console.log(delteComment);
 console.table(comments);
 
 
