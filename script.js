@@ -13,7 +13,7 @@ console.log("Hisashiburi dana");
 console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
-function camelize(str) {
+function camelize(str){
     return str
         .split("-")
         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
@@ -38,6 +38,7 @@ function filterRange(arr, a, b){
     return arr.filter(num => num >= a && num <= b);
 }
 
+
 // 2.2nd Task
 // Filter range "in place"
 // Write a function filterRangeInPlace(arr, a, b) that gets an array arr
@@ -50,6 +51,7 @@ function filterRange(arr, a, b){
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
 filterRangeInPlace(arr, 1, 4);
+console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
         if(arr[i] < a || arr[i] > b){
@@ -58,8 +60,6 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
-console.log(arr);
-
 
 // 3rd Task
 // Map to objects
@@ -86,7 +86,7 @@ let john = { name: "John", surname: "Smith", id: 1, age: 25 };
 let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
-let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
+let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.name}`}));
 console.table(usersMapped);
 // 4th Task
 // Sort users by age
@@ -103,6 +103,7 @@ console.table(sortByAge(users));
 function sortByAge(arr){
     return arr.sort((a, b) => a.age - b.age);
 }
+
 
 
 // 5th Task
@@ -176,10 +177,20 @@ function groupById(arr){
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-const inventorById = inventor.sort((a, b) => a.localeCompare(b));
-console.log(inventorById);
+
+const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
+console.log(inventorByName);
 // 9th Task
 // Sum up the instances of each of these
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+const transportation  = data.reduce((obj, item) => {
+    if(!obj[item]){
+        obj[item] = 0;
+    }
+    obj[item]++;
+    return obj;
+}, {});
+console.log(transportation)
 
 // 10th Task
    const people = [
@@ -205,20 +216,18 @@ console.log(somePeople);
 const everyPerson = people.every(item => 2025 - item.year >= 19);
 console.log(everyPerson);
 
-
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
-const findCommnet = comments.find(item => item.id === 823423);
-console.log(findCommnet);
+const findComment = comments.find(item => item.id === 823423);
+console.table(findComment);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
-const delteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
-console.log(delteComment);
+const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
+console.table(deleteComment);
 console.table(comments);
-
 
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
