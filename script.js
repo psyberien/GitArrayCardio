@@ -13,7 +13,7 @@ console.log("Hisashiburi dana");
 console.log(camelize("background-color"));
 console.log(camelize("list-style-image"));
 console.log(camelize("-webkit-transition"));
-function camelize(str){
+function camelize(str) {
     return str
         .split("-")
         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
@@ -50,7 +50,7 @@ function filterRange(arr, a, b){
 // let arr = [5, 3, 8, 1];
 // filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 // alert( arr ); // [3, 1]
-filterRangeInPlace(arr, 1, 4);
+filterRangeInPlace(arr, 1, 4); 
 console.log(arr);
 function filterRangeInPlace(arr, a, b){
     for(let i=0; i<arr.length; i++){
@@ -60,7 +60,6 @@ function filterRangeInPlace(arr, a, b){
         }
     }
 }
-
 // 3rd Task
 // Map to objects
 // You have an array of user objects, each one has name, surname and id.
@@ -86,7 +85,7 @@ let john = { name: "John", surname: "Smith", id: 1, age: 25 };
 let pete = { name: "Pete", surname: "Hunt", id: 2, age: 30 };
 let mary = { name: "Mary", surname: "Key", id: 3, age: 29 };
 let users = [ john, pete, mary ];
-let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.name}`}));
+let usersMapped = users.map(obj => ({fullName: `${obj.name} ${obj.surname}`, age: `${obj.age}`}));
 console.table(usersMapped);
 // 4th Task
 // Sort users by age
@@ -115,7 +114,7 @@ function sortByAge(arr){
 // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 console.log(getAverageAge(users));
 function getAverageAge(arr){
-    return arr.reduce((num, current) => num + current.age, 0)/arr.length;
+    return arr.reduce((num, current) => num + current.age ,0)/arr.length;
 }
 // 6th Task
 // Filter unique array members
@@ -162,7 +161,7 @@ function unique(strings){
 // */
 let usersById = groupById(users);
 console.log(usersById);
-function groupById(arr){
+function groupById(arr) {
     return arr.reduce((obj, current) => {
         obj[current.name] = current;
         return obj;
@@ -177,20 +176,20 @@ function groupById(arr){
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
-
 const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
 console.log(inventorByName);
+
 // 9th Task
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-const transportation  = data.reduce((obj, item) => {
+const transportation = data.reduce((obj, item) => {
     if(!obj[item]){
         obj[item] = 0;
     }
     obj[item]++;
     return obj;
 }, {});
-console.log(transportation)
+console.log(transportation);
 
 // 10th Task
    const people = [
@@ -210,10 +209,10 @@ console.log(transportation)
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const somePeople = people.some(item => 2025 - item.year >= 19);
+const somePeople = people.some(item =>  2025 - item.year >= 19);
 console.log(somePeople);
 // Array.prototype.every() // is everyone 19 or older?
-const everyPerson = people.every(item => 2025 - item.year >= 19);
+const everyPerson = people.every(item =>  2025 - item.year >= 19);
 console.log(everyPerson);
 
 // Array.prototype.find()
