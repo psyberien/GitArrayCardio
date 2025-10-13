@@ -176,6 +176,7 @@ function groupById(arr) {
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 // Sort the people alphabetically by last name
+
 const inventorByName = inventor.sort((a, b) => a.localeCompare(b));
 console.log(inventorByName);
 
@@ -209,24 +210,31 @@ console.log(transportation);
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
+
 const somePeople = people.some(item =>  2025 - item.year >= 19);
 console.log(somePeople);
+
 // Array.prototype.every() // is everyone 19 or older?
+
 const everyPerson = people.every(item =>  2025 - item.year >= 19);
 console.log(everyPerson);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
+
 const findComment = comments.find(item => item.id === 823423);
 console.table(findComment);
+
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
+
 const deleteComment = comments.splice(comments.findIndex(item => item.id === 823423), 1);
 console.table(deleteComment);
 console.table(comments);
+
 
 //Bonus Task
 // create a list of Boulevards in Paris that contain 'de' anywhere in the 
